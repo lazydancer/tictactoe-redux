@@ -8,15 +8,29 @@ let initialState =  {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    /*case 'ADD_MOVE':
+    case 'ADD_MOVE':
 
+      const history = state.history.slice(0, state.stepNumber + 1);
+      const current = history[history.length - 1];
+      const squares = current.squares.slice();
 
-      return {
-        history: state.history.concat([{
-          squares: state.history[-1]state.id
+/*
+      if (calculateWinner(squares) || squares[i]) {
+        return;
+      }
+*/      
+      squares[action.id] = state.xIsNext ? 'X' : 'O';
+      
+      let newState = {
+        history: history.concat([{
+          squares: squares,
+        }]),
+        stepNumber: history.length,
+        xIsNext: !state.xIsNext,
+      }
 
-        }])
-      }*/
+      return newState
+  
     default:
       return state
     }
