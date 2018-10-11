@@ -30,6 +30,15 @@ const reducer = (state = initialState, action) => {
       }
 
       return newState
+
+    case 'SELECT_HISTORY':
+
+      const changes = {
+        stepNumber: action.id ,
+        xIsNext: (action.id  % 2) === 0
+      }
+
+      return {...state, ...changes}
   
     default:
       return state

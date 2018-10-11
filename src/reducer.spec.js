@@ -46,5 +46,30 @@ describe('reducer', () => {
 
   })
 
+  it('should handle SELECT_HISTORY', () => {
+
+    expect(reducer(
+      {
+        history: [{squares: Array(9).fill(null)},
+                  {squares: ['X',null,null,null,null,null,null,null,null]},
+                  {squares: ['X','O',null,null,null,null,null,null,null]}],
+        stepNumber: 2,
+        xIsNext: true
+      }
+    , {
+        type: 'SELECT_HISTORY',
+        id: 1
+      }))
+
+    .toEqual({
+        history: [{squares: Array(9).fill(null)},
+                  {squares: ['X',null,null,null,null,null,null,null,null]},
+                  {squares: ['X','O',null,null,null,null,null,null,null]}],
+        stepNumber: 1,
+        xIsNext: false
+      });  
+
+  })
+
 
 })
