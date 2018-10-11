@@ -59,12 +59,12 @@ const getSquares = (state) => {
 }
 
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
   status: getStatus(state),
   squares: getSquares(state),
 })
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = (dispatch) => ({
   onClick: (x) => dispatch(({
     type: 'ADD_MOVE',
     id: x

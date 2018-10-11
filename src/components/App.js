@@ -1,6 +1,7 @@
 import React from 'react'
 
 import BoardContainer from '../containers/BoardContainer'
+import GameInfoContainer from '../containers/GameInfoContainer'
 
 import Board from '../components/Board'
 import GameInfo from '../components/GameInfo'
@@ -74,6 +75,7 @@ class Game extends React.Component {
     return (
       <div className="game">
         <BoardContainer />
+        <GameInfoContainer />
       </div>
     );
   }
