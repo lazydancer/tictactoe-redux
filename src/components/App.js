@@ -1,9 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-import Board from '../components/Board';
-import GameInfo from '../components/GameInfo';
+import BoardContainer from '../containers/BoardContainer'
 
-import './App.css';
+import Board from '../components/Board'
+import GameInfo from '../components/GameInfo'
+
+import './App.css'
 
 class Game extends React.Component {
   constructor(props) {
@@ -32,6 +34,8 @@ class Game extends React.Component {
       stepNumber: history.length,
       xIsNext: !this.state.xIsNext,
     })
+
+
   }
 
   jumpTo(step) {
@@ -45,18 +49,7 @@ class Game extends React.Component {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
-/*
-    const moves = history.map((step, move) => {
-      const desc = move ?
-        'Go to move #' + move :
-        'Go to game start';
-      return (
-        <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
-        </li>
-      );
-    });
-*/
+
     const moves = history.reduce((acc, step, move) => {
 
       const desc = move ?
@@ -80,6 +73,16 @@ class Game extends React.Component {
 
     return (
       <div className="game">
+        <BoardContainer />
+      </div>
+    );
+  }
+}
+
+/*
+
+    return (
+      <div className="game">
         <Board
           squares={current.squares}
           onClick={(i) => this.handleClick(i)}
@@ -92,8 +95,8 @@ class Game extends React.Component {
         
       </div>
     );
-  }
-}
+
+*/
 
 function calculateWinner(squares) {
   const lines = [

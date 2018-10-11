@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types'
 import Square from '../components/Square';
 
 const boardLayout = [[0,1,2],[3,4,5],[6,7,8]]
@@ -19,7 +19,12 @@ const Board = ({status, squares, onClick}) => (
 
     </div>
   </div>
-
 )
+
+Board.propTypes = {
+  status: PropTypes.string.isRequired,
+  squares: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onClick: PropTypes.func.isRequired
+}
 
 export default Board
