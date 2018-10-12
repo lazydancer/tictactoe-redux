@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { selectHistory } from '../actions'
 import GameInfo from '../components/GameInfo'
 
 const getMoves = (state) => {
@@ -24,14 +25,7 @@ const mapStateToProps = (state) => ({
   moves: getMoves(state)
 })
 
-const mapDispatchToProps = (dispatch) => ({
-  onClick: (x) => dispatch(({
-    type: 'SELECT_HISTORY',
-    id: x
-  }))
-})
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  { onClick: selectHistory }
 )(GameInfo)

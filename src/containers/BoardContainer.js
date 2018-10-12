@@ -1,7 +1,9 @@
 import { connect } from 'react-redux'
+import { addMove } from '../actions'
 import Board from '../components/Board'
 
-const calculateWinner = (squares) => {
+
+const calculateWinner = squares => {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -12,6 +14,7 @@ const calculateWinner = (squares) => {
     [0, 4, 8],
     [2, 4, 6],
   ];
+
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
@@ -21,24 +24,20 @@ const calculateWinner = (squares) => {
   return null;
 }
 
-
 const getStatus = (state) => {
   const history = state.history;
   const current = history[state.stepNumber];
   const winner = calculateWinner(current.squares);
 
   const moves = history.reduce((acc, step, move) => {
-
-  const desc = move ?
-    'Go to move #' + move :
-    'Go to game start';      
-
-  let result = acc.concat([{
-    move: move,
-    desc: desc
-  }])
-
-  return result
+    const desc = move ?
+      'Go to move #' + move :
+      'Go to game start';      
+    let result = acc.concat([{
+      move: move,
+      desc: desc
+    }])
+    return result
   }, [])
 
   let status;
@@ -69,10 +68,7 @@ const mapDispatchToProps = dispatch => ({
   if(squares[x] || calculateWinner(squares)){
     return
   }
-  dispatch({
-    type: 'ADD_MOVE',
-    id: x
-  })}
+  dispatch(addMove(x))}
 })
 
 export default connect(
