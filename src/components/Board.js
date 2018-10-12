@@ -11,9 +11,9 @@ const Board = ({status, squares, onClick}) => (
 
       {boardLayout.map((row) =>
         <div className="board-row">
-          <Square value={squares[row[0]]} onClick={() => onClick(row[0])}/>
-          <Square value={squares[row[1]]} onClick={() => onClick(row[1])}/>
-          <Square value={squares[row[2]]} onClick={() => onClick(row[2])}/>
+          <Square value={squares[row[0]]} onClick={() => onClick(row[0], squares)}/>
+          <Square value={squares[row[1]]} onClick={() => onClick(row[1], squares)}/>
+          <Square value={squares[row[2]]} onClick={() => onClick(row[2], squares)}/>
         </div>
       )}
 

@@ -59,16 +59,20 @@ const getSquares = (state) => {
 }
 
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   status: getStatus(state),
   squares: getSquares(state),
 })
 
-const mapDispatchToProps = (dispatch) => ({
-  onClick: (x) => dispatch(({
+const mapDispatchToProps = dispatch => ({
+  onClick: (x, squares) => {
+  if(squares[x] || calculateWinner(squares)){
+    return
+  }
+  dispatch({
     type: 'ADD_MOVE',
     id: x
-  }))
+  })}
 })
 
 export default connect(
