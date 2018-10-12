@@ -21,8 +21,7 @@ const getMoves = (state) => {
 }
 
 const mapStateToProps = (state) => ({
-  moves: getMoves(state),
-  history: state.history,
+  moves: getMoves(state)
 })
 
 const mapDispatchToProps = (dispatch) => ({
