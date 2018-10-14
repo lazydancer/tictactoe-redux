@@ -2,7 +2,6 @@ import { connect } from 'react-redux'
 import { addMove } from '../actions'
 import Board from '../components/Board'
 
-
 const calculateWinner = squares => {
   const lines = [
     [0, 1, 2],
@@ -24,23 +23,11 @@ const calculateWinner = squares => {
   return null;
 }
 
-const getStatus = (state) => {
+const getStatus = state => {
   const history = state.history;
   const current = history[state.stepNumber];
   const winner = calculateWinner(current.squares);
 
-  const moves = history.reduce((acc, step, move) => {
-    const desc = move ?
-      'Go to move #' + move :
-      'Go to game start';      
-    let result = acc.concat([{
-      move: move,
-      desc: desc
-    }])
-    return result
-  }, [])
-
-  let status;
   if (winner) {
     return 'Winner: ' + winner;
   } else {
@@ -49,8 +36,7 @@ const getStatus = (state) => {
 
 }
 
-
-const getSquares = (state) => {
+const getSquares = state => {
   const history = state.history;
   const current = history[state.stepNumber];
 

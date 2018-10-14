@@ -14,11 +14,6 @@ const reducer = (state = initialState, action) => {
       const current = history[history.length - 1];
       const squares = current.squares.slice();
 
-/*
-      if (calculateWinner(squares) || squares[i]) {
-        return;
-      }
-*/      
       squares[action.id] = state.xIsNext ? 'X' : 'O';
       
       let newState = {
