@@ -1,4 +1,4 @@
-A simple extenstion of the React Tutorial Tic-Tac-Toe game using redux library to save the state of state in a store and use the core principles of redux
+A simple extenstion of the React Tutorial Tic-Tac-Toe game using redux library to save the state in a store.
 
 Demo: [pucula.com/tictactoe-redux](pucula.com/tictactoe-redux)
 
